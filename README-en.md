@@ -35,7 +35,7 @@ https://md2wechathtml.netlify.app
 ### Setup
 
 ```bash
-git clone https://github.com/TimFIV/md2wechat.git
+git clone https://github.com/TimFIV/md2wechathtml.git
 cd md2wechat
 npm install
 npm run dev

@@ -36,7 +36,7 @@ https://md2wechathtml.netlify.app
 
 ```bash
 # 克隆仓库
-git clone https://github.com/TimFIV/md2wechat.git
+git clone https://github.com/TimFIV/md2wechathtml.git
 cd md2wechat
 
 # 安装依赖
