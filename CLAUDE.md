@@ -6,7 +6,12 @@ This file provides guidance to Claude Code (code.ai/claude) when working in this
 
 **MD2WeChat** — 纯前端 Web 单页应用（SPA），将 Markdown 转换为微信公众号排版的富文本。核心价值：用户用 Markdown 写作 → 实时预览 → 选择主题 → 一键复制富文本，直接粘贴到微信公众平台后台即可发布。
 
-**当前状态**：项目处于 V1.0 规划阶段，仅有 PRD 文档（`prd.md`），尚无代码实现。
+**当前状态**：V1.0.0-beta.1 已完成开发和部署，代码量 2389 行，已上线运行。
+
+### 线上地址
+
+- **GitHub 仓库**：https://github.com/TimFIV/md2wechathtml
+- **在线演示**：https://md2wechathtml.netlify.app
 
 ## 产品形态
 
@@ -15,24 +20,24 @@ This file provides guidance to Claude Code (code.ai/claude) when working in this
 - 10 套内置主题 + 暗黑模式适配
 - 文件上传（.md）、本地历史记录（IndexedDB）、一键复制富文本
 
-## 技术选型（来自 PRD 建议）
+## 技术栈
 
-| 领域 | 推荐方案 |
+| 领域 | 实际方案 |
 |------|----------|
-| 前端框架 | React 或 Vue（开发时选定一个） |
+| 前端框架 | React 19 + TypeScript |
+| 构建工具 | Vite 8 |
 | Markdown 解析 | `markdown-it` + 插件（footnote、texmath） |
-| 公式渲染 | `KaTeX`（输出 HTML+CSS 内联样式） |
-| 代码高亮 | `highlight.js`（关键难点：将类样式转为行内 style） |
-| 本地存储 | IndexedDB（原生封装或 `idb-keyval`） |
+| 公式渲染 | `KaTeX` |
+| 代码高亮 | `Shiki` |
+| 本地存储 | IndexedDB（`idb-keyval`） |
 | 复制实现 | Clipboard API + `execCommand` 降级 |
-| 主题管理 | CSS-in-JS 对象，渲染时直接写入元素行内 style |
+| 主题管理 | 行内 style 属性渲染 |
 
 ## 关键约束
 
 - **所有样式必须写为行内 `style` 属性**，不允许使用 class 或 id，确保复制到微信后台后样式不丢失
 - 预览更新延迟 ≤ 200ms
 - 无服务端，无数据上传，纯本地处理
-- V1.0 仅支持中文界面
 
 ## 主题系统
 
@@ -43,16 +48,45 @@ This file provides guidance to Claude Code (code.ai/claude) when working in this
 
 ## Markdown 语法支持
 
-**P0（必须）**：标题 H1-H6、加粗/斜体/删除线、无序/有序列表、引用块、链接、图片占位符（灰色占位框）、行内代码、代码块（语法高亮）、表格（斑马纹、自适应）、分割线、任务列表
+**P0（已实现）**：标题 H1-H6、加粗/斜体/删除线、无序/有序列表、引用块、链接、图片占位符（灰色占位框）、行内代码、代码块（语法高亮）、表格（斑马纹、自适应）、分割线、任务列表
 
-**P1（V1.0 最小可用实现）**：数学公式（KaTeX）、脚注（锚点链接）、视频卡片（占位符）
+**P1（已实现）**：数学公式（KaTeX）、脚注（锚点链接）、视频卡片（占位符）
+
+## 项目结构
+
+```
+src/
+├── main.tsx              # 入口
+├── App.tsx               # 主应用（分屏布局）
+├── types/index.ts        # 类型定义
+├── lib/
+│   ├── markdown.ts       # Markdown 解析（markdown-it + 插件）
+│   └── themes.ts         # 10 套主题定义
+├── hooks/
+│   └── useHistory.ts     # IndexedDB 历史记录 Hook
+└── components/
+    ├── Editor.tsx        # Markdown 编辑器
+    ├── Preview.tsx       # 预览区（手机模型）
+    ├── Toolbar.tsx       # 工具栏（主题选择、暗黑模式、复制等）
+    ├── HistoryPanel.tsx  # 历史记录面板
+    ├── HtmlModal.tsx     # HTML 源码弹窗
+    └── Toast.tsx         # 提示组件
+```
+
+## 开发命令
+
+```bash
+npm run dev        # 启动开发服务器（http://localhost:5173）
+npm run build      # 构建生产版本（输出到 dist/）
+npm run lint       # 代码检查
+npm run preview    # 预览生产构建
+```
 
 ## 里程碑
 
-1. 原型阶段（2周）：基础 Markdown 解析 + 一套默认主题 + 分屏预览
-2. MVP V1.0（4周）：10 套主题 + 暗黑模式 + 复制 + 代码高亮/表格/脚注/公式 + 视频占位符 + 本地历史 + 文件上传
-3. V1.1（后续）：主题自定义、导出增强、更多语法
+1. ~~原型阶段~~ ✅ V1.0.0-beta.1（2026/05/17）：完整功能 + 上线部署
+2. V1.1（后续）：主题自定义、导出增强、更多语法
 
 ## 参考文档
 
-- 产品需求文档：`prd.md`（包含完整的用户故事、功能规格、交互原型、非功能需求）
+- 产品需求文档：`prd.md`
