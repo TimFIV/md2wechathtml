@@ -64,7 +64,7 @@ export default function Toolbar({
           whiteSpace: 'nowrap',
         }}
       >
-        📝 MD2WeChat
+        📝 MD2WeChatHtml
       </div>
 
       {/* 历史记录 */}

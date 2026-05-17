@@ -1,10 +1,10 @@
-# MD2WeChat
+# MD2WeChatHtml
 
 > 📝 Markdown → WeChat Official Account Formatting Tool
 
 **Write Markdown, copy rich text with one click, paste directly into WeChat editor.**
 
-![MD2WeChat Preview](./docs/screenshot.png)
+![MD2WeChatHtml Preview](./docs/screenshot.png)
 
 [中文文档](./README.md)
 

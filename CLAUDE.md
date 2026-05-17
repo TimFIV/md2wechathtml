@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (code.ai/claude) when working in this
 
 ## 项目概述
 
-**MD2WeChat** — 纯前端 Web 单页应用（SPA），将 Markdown 转换为微信公众号排版的富文本。核心价值：用户用 Markdown 写作 → 实时预览 → 选择主题 → 一键复制富文本，直接粘贴到微信公众平台后台即可发布。
+**MD2WeChatHtml** — 纯前端 Web 单页应用（SPA），将 Markdown 转换为微信公众号排版的富文本。核心价值：用户用 Markdown 写作 → 实时预览 → 选择主题 → 一键复制富文本，直接粘贴到微信公众平台后台即可发布。
 
 **当前状态**：V1.0.0-beta.1 已完成开发和部署，代码量 2389 行，已上线运行。
 

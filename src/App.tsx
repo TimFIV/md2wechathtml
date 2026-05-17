@@ -9,7 +9,7 @@ import { themes, getThemeById } from './lib/themes';
 import { renderMarkdown, applyInlineStyles } from './lib/markdown';
 import { useHistory } from './hooks/useHistory';
 
-const DEFAULT_MD = `# 欢迎使用 MD2WeChat
+const DEFAULT_MD = `# 欢迎使用 MD2WeChatHtml
 
 > 这是一款将 Markdown 转换为微信公众号排版的工具。
 
@@ -41,7 +41,7 @@ const DEFAULT_MD = `# 欢迎使用 MD2WeChat
 
 \`\`\`javascript
 function hello() {
-  console.log('Hello, MD2WeChat!');
+  console.log('Hello, MD2WeChatHtml!');
   return true;
 }
 \`\`\`

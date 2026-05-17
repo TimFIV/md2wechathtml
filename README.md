@@ -1,10 +1,10 @@
-# MD2WeChat
+# MD2WeChatHtml
 
 > 📝 Markdown → 微信公众号排版工具
 
 **写 Markdown，一键复制富文本，直接粘贴到公众号后台发布。**
 
-![MD2WeChat Preview](./docs/screenshot.png)
+![MD2WeChatHtml Preview](./docs/screenshot.png)
 
 [English Version](./README-en.md)
 
